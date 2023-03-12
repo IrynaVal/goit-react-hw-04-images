@@ -7,14 +7,6 @@ import { Button } from 'components/Button/Button';
 import { getImages } from 'services/getImages';
 
 export const App = () => {
-  // state = {
-  //   searchQuery: '',
-  //   images: [],
-  //   loading: false,
-  //   page: 1,
-  //   imgPerPage: 12,
-  // };
-
   const [searchQuery, setSearchQuery] = useState('');
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -30,7 +22,7 @@ export const App = () => {
     getImages(searchQuery, page, imgPerPage)
       .then(data => {
         // console.log(data);
-        console.log(data.hits);
+        // console.log(data.hits);
         if (data.totalHits === 0) {
           return Promise.reject(new Error());
         }
@@ -46,30 +38,6 @@ export const App = () => {
       });
   }, [searchQuery, page, imgPerPage]);
 
-  // const componentDidUpdate(prevProps, prevState) {
-  //   const { searchQuery, page, imgPerPage, images } = this.state;
-  //   if (prevState.searchQuery !== searchQuery || prevState.page !== page) {
-  //     setLoading(true);
-  //     getImages(searchQuery, page, imgPerPage)
-  //       .then(data => {
-  //         // console.log(data);
-  //         // console.log(data.hits);
-  //         if (data.totalHits === 0) {
-  //           return Promise.reject(new Error());
-  //         }
-  //         setImages(...images, ...data.hits);
-  //       })
-  //       .catch(error => {
-  //         toast.error(
-  //           'Sorry, there are no images matching your search query. Please try again.'
-  //         );
-  //       })
-  //       .finally(() => {
-  //         setLoading(false);
-  //       });
-  //   }
-  // }
-
   const formSubmitHandler = searchQuery => {
     setSearchQuery(searchQuery);
     setImages([]);
@@ -78,11 +46,8 @@ export const App = () => {
 
   const handleLoad = () => {
     setPage(prevState => prevState + 1);
-    // page+1
   };
 
-  // render() {
-  //   const { loading, images } = this.state;
   return (
     <div
       style={{
@@ -110,4 +75,3 @@ export const App = () => {
     </div>
   );
 };
-// }

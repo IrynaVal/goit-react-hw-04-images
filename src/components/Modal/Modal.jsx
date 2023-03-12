@@ -7,23 +7,12 @@ const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ image, tags, onClose }) => {
   useEffect(() => {
-    console.log('is');
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      console.log('is not');
       window.removeEventListener('keydown', handleKeyDown);
     };
   });
-
-  // useEffect(() => {});
-  // const componentDidMount() {
-  //   window.addEventListener('keydown', handleKeyDown);
-  // }
-
-  // const componentWillUnmount() {
-  //   window.removeEventListener('keydown', handleKeyDown);
-  // }
 
   const handleKeyDown = evt => {
     if (evt.code === 'Escape') {
@@ -37,9 +26,6 @@ export const Modal = ({ image, tags, onClose }) => {
     }
   };
 
-  // render() {
-  //   const { image, tags } = this.props;
-
   return createPortal(
     <div className={css.Overlay} onClick={handleBackdropClick}>
       <div className={css.Modal}>
@@ -49,7 +35,6 @@ export const Modal = ({ image, tags, onClose }) => {
     modalRoot
   );
 };
-// }
 
 Modal.propTypes = {
   image: PropTypes.string.isRequired,

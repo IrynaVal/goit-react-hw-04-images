@@ -5,19 +5,13 @@ import css from './Searchbar.module.css';
 import PropTypes from 'prop-types';
 
 export const Searchbar = ({ onSubmit }) => {
-  // state = {
-  //   query: '',
-  // };
-
   const [query, setQuery] = useState('');
 
   const handleChange = evt => {
-    const { value } = evt.target;
-    setQuery(value);
+    setQuery(evt.target.value);
   };
 
   const handleFormSubmit = evt => {
-    // const { query } = this.state;
     evt.preventDefault();
     if (!query) {
       toast.error(
@@ -33,8 +27,6 @@ export const Searchbar = ({ onSubmit }) => {
     setQuery('');
   };
 
-  // render() {
-  //   const { query } = this.state;
   return (
     <header className={css.Searchbar}>
       <form className={css.SearchForm} onSubmit={handleFormSubmit}>
@@ -58,7 +50,6 @@ export const Searchbar = ({ onSubmit }) => {
     </header>
   );
 };
-// }
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,

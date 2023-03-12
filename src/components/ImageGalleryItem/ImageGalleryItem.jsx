@@ -6,10 +6,6 @@ import css from './ImageGalleryItem.module.css';
 export const ImageGalleryItem = ({
   item: { webformatURL, largeImageURL, tags },
 }) => {
-  // state = {
-  //   isModalOpen: false,
-  // };
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -18,14 +14,7 @@ export const ImageGalleryItem = ({
     } else {
       setIsModalOpen(true);
     }
-    // setState(({ isModalOpen }) => ({ isModalOpen: !isModalOpen }));
   };
-
-  // render() {
-  // const {
-  //   item: { webformatURL, largeImageURL, tags },
-  // } = this.props;
-  // const { isModalOpen } = this.state;
 
   return (
     <>
@@ -42,7 +31,6 @@ export const ImageGalleryItem = ({
     </>
   );
 };
-// }
 
 ImageGalleryItem.propTypes = {
   item: PropTypes.shape({
