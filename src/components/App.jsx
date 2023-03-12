@@ -34,7 +34,7 @@ export const App = () => {
         if (data.totalHits === 0) {
           return Promise.reject(new Error());
         }
-        setImages([...images, ...data.hits]);
+        setImages(prevState => [...prevState, ...data.hits]);
       })
       .catch(error => {
         toast.error(
